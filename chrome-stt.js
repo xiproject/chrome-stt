@@ -10,7 +10,6 @@ var lastFinalTranscript = '';
 console.log('chrome-stt plugin loaded');
 
 function updateFinalTranscript() {
-    console.log("Checking to update final transcript: ", finalSpan.textContent);
     if (finalSpan.textContent.length > 0 &&
 	lastFinalTranscript !== finalSpan.textContent) {
 	lastFinalTranscript = lastFinalTranscript.replace(/\*/g, '\\*');
@@ -36,7 +35,6 @@ function keepListening() {
 var lastInterimTranscript = '';
 
 function useInterimTranscript() {
-    console.log("Checking to use interim transcript: ", interimSpan.textContent);
     if (lastInterimTranscript.length > 0 && interimSpan.textContent === lastInterimTranscript) {
 	console.log("using interim transcript");
 	startButton.click();

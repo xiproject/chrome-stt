@@ -1,31 +1,31 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+var restify = require('restify');
+
+var server = restify.createServer({
+    name: 'chrome-stt-server'
+});
+
+server.use(restify.queryParser());
 
 var xal = require('../../xal-javascript');
 
-xal.setName('chrome-stt');
-xal.start();
-
-app.all('/*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-
-app.get('/', function(req, res) {
-    var message = req.query['stt'];
+server.get('/', function(req, res, next) {
+    var message = req.query.stt;
+    console.log(message);
     res.send("STT Okay");
     message = message.replace(/\bp m\b/ig, 'pm');
     message = message.replace(/\ba m\b/ig, 'am');
     message = message.replace(/\bbm\b/ig, 'pm');
     message = message.replace(/\b(\d\d)(\d\d) (am|pm)\b/, "$1:$2 $3");
-    console.log("Recieved STT:", message);
-    xal.postEvent({'xi.event': {input: {text: message}}});
+    xal.log.info("Received STT:", message);
+    xal.createEvent('xi.event.input.text', function(state, done) {
+        state.put('xi.event.input.text', message);
+        done(state);
+    });
+    next();
 });
 
-app.listen(9876);
-console.log('Chrome-STT Server: Listening on port 9876');
+xal.start({name: 'chrome-stt'}, function() {
+    server.listen(9876, function() {
+        xal.log.info('Chrome-STT Server: Listening on port 9876');
+    });
+});
