@@ -4,6 +4,8 @@ var server = restify.createServer({
     name: 'chrome-stt-server'
 });
 
+server.use(restify.CORS());
+server.use(restify.fullResponse());
 server.use(restify.queryParser());
 
 var xal = require('../../xal-javascript');
