@@ -6,7 +6,7 @@
 
     "content_scripts": [
 	{
-            "matches": ["https://www.google.com/intl/en/chrome/demos/speech.html"],
+            "matches": ["*://www.google.com/intl/en/chrome/demos/speech.html"],
             "js": ["chrome-stt.js", "jquery-2.1.0.min.js"]
 	}
     ],
