@@ -12,7 +12,6 @@ var xal = require('../../xal-javascript');
 
 server.get('/', function(req, res, next) {
     var message = req.query.stt;
-    console.log(message);
     res.send("STT Okay");
     message = message.replace(/\bp m\b/ig, 'pm');
     message = message.replace(/\ba m\b/ig, 'am');
