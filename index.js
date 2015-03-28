@@ -17,6 +17,7 @@ server.get('/', function(req, res, next) {
     message = message.replace(/\ba m\b/ig, 'am');
     message = message.replace(/\bbm\b/ig, 'pm');
     message = message.replace(/\b(\d\d)(\d\d) (am|pm)\b/, "$1:$2 $3");
+    message = message.trim();
     xal.log.info("Received STT:", message);
     xal.createEvent('xi.event.input.text', function(state, done) {
         state.put('xi.event.input.text', message);
