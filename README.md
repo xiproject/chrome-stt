@@ -1,6 +1,6 @@
 # Chrome Speech-to-Text
 
-This agent uses Google Chrome's speech to text capabilities to provide voice recognition for Xi.
+This agent uses Google Chrome's speech to text capabilities to provide voice recognition for [Zeus](http://xiproject.github.io/zeus).
 
 ## Prerequisites
 
