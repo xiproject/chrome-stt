@@ -1,7 +1,8 @@
 {
   "name": "chrome-stt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "This module uses Google Chrome's speech to text capabilities to provide voice recognition for Xi.",
+  "repository": "https://github.com/xiproject/chrome-stt",
   "main": "chrome-stt.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
