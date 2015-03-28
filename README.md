@@ -30,3 +30,6 @@ $ node index.js --logfile chrome-stt.log 2>&1 | bunyan
 
 [Chrome app]: https://chrome.google.com/webstore/detail/xi/pdifndlbcogjdkhobdinhfnclkanelbo
 [bunyan]: https://github.com/trentm/node-bunyan
+
+## License
+GPLv3
