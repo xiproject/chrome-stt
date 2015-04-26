@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "natural": "^0.2.1",
     "restify": "^2.8.3",
     "underscore": "^1.7.0"
   },
